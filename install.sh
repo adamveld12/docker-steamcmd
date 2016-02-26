@@ -15,6 +15,6 @@ fi;
 
 /home/steam/steamcmd/steamcmd.sh \
       +login $STEAMUSER $STEAMPASS \
-      +force_install_dir /home/steam/ \
+      +force_install_dir /home/steam/game/ \
       +app_update $APPID validate \
       +exit;

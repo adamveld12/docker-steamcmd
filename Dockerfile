@@ -4,7 +4,7 @@ MAINTAINER Adam Veldhousen <adam@veldhousen.ninja>, @adamveld12
 
 RUN dpkg --add-architecture i386 && \
     apt-get update && \
-    apt-get -y install lib32gcc1 lib32stdc++6 curl tar
+    apt-get -y install lib32gcc1 libstdc++6 libstdc++6:i386 curl ca-certificates tar
 
 RUN useradd -m -s /bin/bash steam
 
