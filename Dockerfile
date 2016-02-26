@@ -26,6 +26,6 @@ USER steam
 
 VOLUME  ["/configuration", "/data"]
 
-COPY ./launch.sh ./launch.sh
+COPY ./install.sh ./install.sh
 
-ENTRYPOINT ./launch.sh
+ENTRYPOINT ./install.sh && /configuration/startup.sh

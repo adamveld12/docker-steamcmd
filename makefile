@@ -1,2 +1,2 @@
 build:
-	docker build -t adamveld12/steam .
+	docker build -t adamveld12/steamcmd .
