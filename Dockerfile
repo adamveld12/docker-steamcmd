@@ -21,6 +21,9 @@ RUN mkdir -p ./steamcmd/steacmd.sh && \
 
 USER steam
 
+ENV STEAMUSER="anonymous"
+ENV STEAMPASS=""
+
 VOLUME  ["/configuration", "/data"]
 
 COPY ./configuration/startup.sh /configuration
