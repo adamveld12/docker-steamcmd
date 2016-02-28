@@ -8,15 +8,13 @@ RUN dpkg --add-architecture i386 && \
 
 RUN useradd -m -s /bin/bash steam
 
-COPY ./configuration /configuration
-
 WORKDIR /home/steam
 
 RUN mkdir -p ./steamcmd/steacmd.sh && \
     mkdir /data && \
     curl http://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -xz -C ./steamcmd/ && \
     echo quit | ./steamcmd/steamcmd.sh && \
-    mkdir -p ./.steam/sdk32 && \
+    mkdir -p ./.steam/sdk32 && mkdir /configuration && mkdir /data \
     ln -s /home/steam/steamcmd/linux32/steamclient.so /home/steam/.steam/sdk32/steamclient.so && \
     chown -R steam /home/steam && \
     chown -R steam /configuration && \
@@ -26,6 +24,7 @@ USER steam
 
 VOLUME  ["/configuration", "/data"]
 
-COPY ./install.sh ./install.sh
+COPY ./configuration/startup.sh /configuration
+COPY ./install.sh .
 
 ENTRYPOINT ./install.sh && /configuration/startup.sh
