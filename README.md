@@ -8,6 +8,6 @@ A steamcmd client setup in a container for easy docker based dedicated server se
 
 3. Add your startup script to `configuration/startup.sh`. The entrypoint in the container is pointing there by default.
 
-4. `docker run -d -v $PWD/configuration:/configuration -p someport  adamveld12/steam`
+4. `docker run -d -e APPID="someappid" -v $PWD/configuration:/configuration -p someport  adamveld12/steam`
 
 There is also a `/data` folder that can be used for any persistent information.
